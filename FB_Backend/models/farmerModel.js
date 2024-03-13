@@ -31,7 +31,7 @@ const farmerSchema = new mongoose.Schema({
 })
 
 
-sellerSchema.index({ email: 1 });
+farmerSchema.index({ email: 1 });
 
 
 module.exports = mongoose.model('sellers',farmerSchema);

@@ -20,7 +20,7 @@ const bagSchema = new mongoose.Schema({
 })
 
 // Define a unique compound index on userId and productId
-cartSchema.index({ userId: 1, productId: 1 }, { unique: true });
+bagSchema.index({ userId: 1, productId: 1 }, { unique: true });
 
 
 module.exports = mongoose.model('bags',bagSchema);
