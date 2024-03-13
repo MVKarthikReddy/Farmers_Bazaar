@@ -1,17 +1,24 @@
 const mongoose = require('mongoose');
-
-const bagSchema = new mongoose.Schema({
+const reviewSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true
-    }, 
+    },
     productId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true
-    },
-    quantity: {
+    },  
+    stars: {
         type: Number,
-        default: 1
+        required: true
+    },
+    heading: {
+        type: String, 
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
     },
     date: {
         type: Date,
@@ -19,8 +26,9 @@ const bagSchema = new mongoose.Schema({
     }
 })
 
+
 // Define a unique compound index on userId and productId
-cartSchema.index({ userId: 1, productId: 1 }, { unique: true });
+reviewSchema.index({ userId: 1, productId: 1 }, { unique: true });
 
 
-module.exports = mongoose.model('bags',bagSchema);
+module.exports = mongoose.model('reviews',reviewSchema);
