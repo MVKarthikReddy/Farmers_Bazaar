@@ -23,7 +23,6 @@ const signup = async (req, res) => {
     }
 }
 
-
 // @desc Login the user
 // @route POST /api/users/login/
 // @access public
