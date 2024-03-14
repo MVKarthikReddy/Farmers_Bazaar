@@ -46,7 +46,7 @@ const login =  async (req, res) => {
 
 
 // Delete Seller Account
-const deleteSellerAccount = async (req, res) => {
+const deleteFarmerAccount = async (req, res) => {
     try {
          // Find and delete user data from other collections
          await Promise.all([
@@ -61,10 +61,8 @@ const deleteSellerAccount = async (req, res) => {
     }
 }
 
-
-
 module.exports = {
     signup,
     login,
-    deleteSellerAccount
+    deleteFarmerAccount
 };
