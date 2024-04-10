@@ -1,4 +1,4 @@
-const FAQ = require("../models/faqsModel");
+const FAQ = require("../models/faqSchema");
 
 // Add FAQ
 const addFAQ = async (req, res) => {
@@ -8,11 +8,11 @@ const addFAQ = async (req, res) => {
     console.log(result);
     res.status(200).send({
       message:
-        "After the farmer answers your question, we will get back to you.",
-
+        "After the farmer answers your question, we will send you an email to inform you.",
     });
   } catch (error) {
     res.status(500).send({ message: "Something went wrong!" });
+    console.log(error);
   }
 };
 

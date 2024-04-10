@@ -1,32 +1,28 @@
-const User = require('../models/userModel');
-const Review = require('../models/reviewModel');
-const Cart = require("../models/bagModel");
+const User = require('../models/userSchema');
+const Review = require('../models/reviewSchema');
+const Cart = require("../models/cartSchema");
 
-// @desc Register the user
-// @route POST /api/users/register/
-// @access public
+const { sendMail } = require('./mailController');
 
+// SignUp
 const signup = async (req, res) => {
     try {
         let data = User(req.body);
         let result = await data.save({ writeConcern: { w: 'majority' } });
         console.log(result);
+        // sendMail(req.body.email, "User account created", req.body.name, "Welcome to Farmer's Bazaar");
         return res.status(200).send({message: 'User account created'});
     } catch (error) {
         if (error.code === 11000 && (error.keyPattern.email || error.keyPattern.phoneNo)) {
             return res.status(400).send({message: 'User with this email or phone number already exists'});
         }
-        console.log(req.body);
+        console.log(error);
         return res.status(500).send({message: 'Something went wrong!'});
-        // return res.status(500).send({message: error.message});
-
     }
 }
 
-// @desc Login the user
-// @route POST /api/users/login/
-// @access public
 
+// Login
 const login = async (req, res) => {
     try {
         let data = await User.findOne({ email: req.body.email, password: req.body.password });
@@ -44,10 +40,7 @@ const login = async (req, res) => {
 }
 
 
-// @desc Delete the user
-// @route POST /api/users/delete/
-// @access private
-
+// Delete User Account
 const deleteUserAccount = async (req, res) => {
     try {
          // Find and delete user data from other collections

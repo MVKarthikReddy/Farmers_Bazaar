@@ -1,6 +1,6 @@
-const Product = require("../models/productModel");
-const Review = require("../models/reviewModel");
-const Cart = require("../models/bagModel");
+const Product = require("../models/productSchema");
+const Review = require("../models/reviewSchema");
+const Cart = require("../models/cartSchema");
 
 // Add Product
 const addProduct = async (req, res) => {
