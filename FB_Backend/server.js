@@ -6,8 +6,8 @@ require("dotenv").config();
 
 // const { setupWebSocket } = require("./services/setupWebSocket");
 
-require('./config/connectDB')
-
+const connectDb = require('./config/connectDB')
+connectDb()
 
 const user = require("./routes/userRoute.js");
 const seller = require("./routes/sellerRoute.js");
