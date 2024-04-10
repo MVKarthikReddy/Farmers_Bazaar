@@ -26,8 +26,8 @@ app.use(cors());
 
 app.use(express.json());
 
-const server = http.createServer(app);
-const io = new Server(server);
+// const server = http.createServer(app);
+// const io = new Server(server);
 
 // setupWebSocket(io);
 
@@ -42,6 +42,6 @@ app.use("/api/sellers", seller);
 // app.use("/graph", graph)
 
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on PORT: ${PORT}`);
 });
