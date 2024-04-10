@@ -5,7 +5,7 @@ const sellerController = require("../controllers/sellerController");
 
 // SignUp
 // router.post("/signup", verifyOTP, sellerController.signup);
-router.post("/signup", sellerController.signup);
+router.post("/register", sellerController.signup);
 
 // Login
 router.post("/login", sellerController.login);

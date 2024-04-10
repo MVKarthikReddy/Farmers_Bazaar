@@ -1,4 +1,3 @@
-require("./config/connectDB.js");
 const express = require("express");
 const cors = require("cors");
 const http = require("http");
@@ -6,6 +5,9 @@ const { Server } = require("socket.io");
 require("dotenv").config();
 
 // const { setupWebSocket } = require("./services/setupWebSocket");
+
+require('./config/connectDB')
+
 
 const user = require("./routes/userRoute.js");
 const seller = require("./routes/sellerRoute.js");
@@ -17,7 +19,7 @@ const seller = require("./routes/sellerRoute.js");
 // const faq = require("./routes/faqRoute.js");
 // const graph = require("./routes/graphRoute.js")
 
-const PORT = 8080;
+const PORT = 5000 || process.env.PORT;
 const app = express();
 
 app.use(cors());
