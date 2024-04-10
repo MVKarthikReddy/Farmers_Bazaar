@@ -29,7 +29,7 @@ function LoginAndSignup() {
     setIsLoading(true);
     if (type === "user") {
       if (signIn === true) {
-        let userData = await postAPI("user/login", { email, password });
+        let userData = await postAPI("/api/users/login", { email, password });
         console.log(userData);
         if (userData.isLoggedIn) {
           dispatch(addUserData(userData.userData));
@@ -37,7 +37,7 @@ function LoginAndSignup() {
         }
       } else {
         
-        await postAPI(`user/signup`, {
+        await postAPI(`/api/users/register`, {
           name,
           email,
           password,
@@ -46,20 +46,16 @@ function LoginAndSignup() {
       }
     } else if (type === "seller") {
       if (signIn === true) {
-        let sellerData = await postAPI("seller/login", { email, password });
+        let sellerData = await postAPI("/api/sellers/login", { email, password });
         if (sellerData.isLoggedIn) {
           dispatch(addSellerData(sellerData.sellerData));
           navigate('/sellerdashboard');
         }
       } else {
-        // await postAPI(`seller/signup?otp=${otp}`, {
-        //   name,
-        //   email,
-        //   password,
-        //   phoneNo,
-        //   brandName,
-        // });
-        await postAPI(`seller/signup`, {
+       
+        console.log('seller data')
+
+        await postAPI(`/api/sellers/register`, {
           name,
           email,
           password,

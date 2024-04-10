@@ -3,7 +3,8 @@ import { notifyType } from "../helper/notificationType";
 
 export const postAPI = async (endpointURL, data) => {
   try {
-    const response = await fetch(`${import.meta.env.VITE_CROPCONNECT_API}${endpointURL}`, {
+    console.log(endpointURL)
+    const response = await fetch(`https://farmers-bazaar.onrender.com${endpointURL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
