@@ -1,8 +1,8 @@
 const User = require('../models/userSchema');
-const Review = require('../models/reviewSchema');
-const Cart = require("../models/cartSchema");
+// const Review = require('../models/reviewSchema');
+// const Cart = require("../models/cartSchema");
 
-const { sendMail } = require('./mailController');
+// const { sendMail } = require('./mailController');
 
 // SignUp
 const signup = async (req, res) => {
@@ -44,10 +44,10 @@ const login = async (req, res) => {
 const deleteUserAccount = async (req, res) => {
     try {
          // Find and delete user data from other collections
-         await Promise.all([
-            Cart.deleteMany({ userId: req.params.userId }),
-            Review.deleteMany({ userId: req.params.userId  }),
-        ]);
+        //  await Promise.all([
+        //     Cart.deleteMany({ userId: req.params.userId }),
+        //     Review.deleteMany({ userId: req.params.userId  }),
+        // ]);
 
         let data = await User.deleteOne({ _id: req.params.userId }, { writeConcern: { w: 'majority' } });
         res.status(200).send(data);

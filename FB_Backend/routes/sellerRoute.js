@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const sellerController = require("../controllers/sellerController");
-const verifyOTP = require("../middlewares/verifyOTP");
+// const verifyOTP = require("../middlewares/verifyOTP");
 
 // SignUp
 // router.post("/signup", verifyOTP, sellerController.signup);

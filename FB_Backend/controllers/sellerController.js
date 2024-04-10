@@ -1,4 +1,4 @@
-const { sendMail } = require('./mailController');
+// const { sendMail } = require('./mailController');
 
 
 const Seller = require('../models/sellerSchema');
@@ -51,9 +51,9 @@ const login =  async (req, res) => {
 const deleteSellerAccount = async (req, res) => {
     try {
          // Find and delete user data from other collections
-         await Promise.all([
-            Product.deleteMany({ sellerId: req.params.sellerId }),
-        ]);
+        //  await Promise.all([
+        //     Product.deleteMany({ sellerId: req.params.sellerId }),
+        // ]);
 
         let data = await Seller.deleteOne({ _id: req.params.sellerId }, { writeConcern: { w: 'majority' } });
         res.status(200).send(data);
