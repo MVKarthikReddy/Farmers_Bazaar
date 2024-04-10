@@ -14,7 +14,7 @@ export const cartReducer = (state = initialState, action) => {
       const productIdToIncQty = action.payload;
       const updatedCartByIncQty = state.map((item) => {
         // console.log(item);
-        if (item._id === productIdToIncQty && item.qty!==item.stocksLeft) {
+      if (item._id === productIdToIncQty && item.qty!==item.stocksLeft) {
           return { ...item, qty: item.qty + 1, currentPrice: item.currentPrice + item.pricePerUnit};
         }
         return item;

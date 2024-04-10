@@ -64,7 +64,7 @@ const Footer = () => {
       made by <> </>
       <a
         className="text-white font-bold"
-        href="https://tw-elements.com/"
+        href="https://karthik-reddy.vercel.app/"
       >karthik</a>
     </div>
   </footer>

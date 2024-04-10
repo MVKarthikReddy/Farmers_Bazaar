@@ -84,7 +84,7 @@ function LoginAndSignup() {
 
   return (
     <div className="w-full h-screen p-1 flex flex-row justify-center">
-        <section className="my-3 border border-black-700 rounded-xl p-5 w-3/5 h-5/5 flex flex-row">
+        <section className="my-3 border border-black-700 rounded-xl p-5 w-4/5 h-5/5 flex flex-row">
           <div
             className={`w-full md:w-1/2 overflow-y-auto duration-300 ease-linear transition ${
               signIn ? "" : "md:translate-x-full"

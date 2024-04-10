@@ -4,7 +4,7 @@ import { notifyType } from "../helper/notificationType";
 export const postAPI = async (endpointURL, data) => {
   try {
     console.log(endpointURL)
-    const response = await fetch(`https://farmers-bazaar.onrender.com${endpointURL}`, {
+    const response = await fetch(`${import.meta.env.VITE_FARMERS_BAZAAR_API}${endpointURL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

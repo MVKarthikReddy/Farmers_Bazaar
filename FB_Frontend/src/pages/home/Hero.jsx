@@ -1,5 +1,5 @@
 import React from "react";
-
+import 'dotenv'
 function Hero() {
   return (
     <>
@@ -18,6 +18,7 @@ function Hero() {
 
             <p className="mt-3 max-w-lg sm:text-xl sm:leading-relaxed">
               Connecting Farmers and Consumers - Delivering Freshness to Your Home!
+              {/* {console.log(import.meta.env.VITE_FARMERS_BAZAAR_API)} */}
             </p>
           </div>
         </div>

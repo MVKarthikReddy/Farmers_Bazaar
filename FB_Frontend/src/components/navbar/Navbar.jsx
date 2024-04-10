@@ -6,12 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { addSellerData, addUserData } from "../../redux/actions";
 import { FaUserCircle } from "react-icons/fa";
 import { FaSellcast } from "react-icons/fa6";
-import { GiFarmer } from "react-icons/gi";
+import { GiShoppingBag } from "react-icons/gi";
 
 import { notify } from "../../utils/helper/notification";
 
 function Navbar() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const userDropdownRef = useRef();
@@ -82,7 +82,7 @@ function Navbar() {
                 <ul className="py-1 md:py-2 flex flex-col text-sm gap-2 text-gray-700 ">
                   <li
                     onClick={() => {
-                      // dispatch(addUserData(null));
+                      dispatch(addUserData(null));
                       notify("User Logged Out", "info");
                       navigate("/");
                     }}
@@ -147,7 +147,7 @@ function Navbar() {
               setOpenCart(true);
             }}
           >
-            <AiOutlineShoppingCart />
+            <GiShoppingBag />
             <span className="text-sm font-medium hidden md:block">Bag</span>
           </div>
           {openCart && <Cart setOpenCart={setOpenCart} />}

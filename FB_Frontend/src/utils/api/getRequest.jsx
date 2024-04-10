@@ -3,7 +3,7 @@ import { notifyType } from "../helper/notificationType";
 
 export const getAPI = async (endpointURL) => {
   try {
-    const response = await fetch(`${import.meta.env.VITE_CROPCONNECT_API}${endpointURL}`, {
+    const response = await fetch(`${import.meta.env.VITE_FARMERS_BAZAAR_API}${endpointURL}`, {
       method: "GET"
     });
     const responseData = await response.json();
