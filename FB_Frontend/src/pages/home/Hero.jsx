@@ -13,7 +13,7 @@ function Hero() {
           <div className="max-w-xl text-center sm:text-left">
             <h1 className="text-3xl font-bold md:text-5xl">
               Farmers
-              <strong className="font-bold text-rose-600">Bazaar</strong>
+              <strong className="font-bold text-blue-600">Bazaar</strong>
             </h1>
 
             <p className="mt-3 max-w-lg sm:text-xl sm:leading-relaxed">
