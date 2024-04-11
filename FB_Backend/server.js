@@ -11,12 +11,12 @@ connectDb()
 
 const user = require("./routes/userRoute.js");
 const seller = require("./routes/sellerRoute.js");
-// const product = require("./routes/productRoute.js");
+const product = require("./routes/productRoute.js");
 // const review = require("./routes/reviewRoute.js");
-// const cart = require("./routes/cartRoute.js");
+const cart = require("./routes/cartRoute.js");
 // const otp = require("./routes/otpRoute.js");
-// const order = require("./routes/orderRoute.js");
-// const faq = require("./routes/faqRoute.js");
+const order = require("./routes/orderRoute.js");
+const faq = require("./routes/faqsRoute.js");
 // const graph = require("./routes/graphRoute.js")
 
 const PORT = 5000 || process.env.PORT;
@@ -33,12 +33,12 @@ const server = http.createServer(app);
 
 app.use("/api/users", user);
 app.use("/api/sellers", seller);
-// app.use("/product", product);
+app.use("/product", product);
 // app.use("/review", review);
-// app.use("/cart", cart);
+app.use("/cart", cart);
 // app.use("/otp", otp);
-// app.use("/order", order);
-// app.use("/faq", faq);
+app.use("/order", order);
+app.use("/faq", faq);
 // app.use("/graph", graph)
 
 
