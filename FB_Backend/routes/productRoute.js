@@ -3,9 +3,7 @@ const router = express.Router();
 const productController = require('../controllers/productController')
 
 // Add Product
-router.post("/addProduct", () => {
-    console.log("adding product")
-});
+router.post("/addProduct", productController.addProduct);
 
 // Get Product Data By Category
 router.get("/getProductDataByCategory/:category", productController.getProductDataByCategory);
