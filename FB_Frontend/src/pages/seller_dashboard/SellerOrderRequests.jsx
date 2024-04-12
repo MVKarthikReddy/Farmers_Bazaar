@@ -20,7 +20,7 @@ function SellerOrderRequests() {
   // API to GET Data
   const getOrders = async () => {
     let orderedData = await getAPI(
-      `order/get/${sellerData._id}`
+      `/order/get/${sellerData._id}`
     );
     setData(orderedData);
     setIsDataFetching(false);

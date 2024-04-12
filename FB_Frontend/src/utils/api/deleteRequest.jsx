@@ -18,7 +18,7 @@ export const deleteAPI = async (endpointURL) => {
     // console.log(responseData);
     notify(responseData["message"], notifyType(response.status));
   } catch (error) {
-      notify(responseData["message"], "error");
+      notify("error");
     console.log(error);
 
   }

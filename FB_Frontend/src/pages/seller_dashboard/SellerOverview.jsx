@@ -16,7 +16,7 @@ function SellerOverview() {
   const [isDataFetching, setIsDataFetching] = useState(true);
 
   const visualizeData = async () => {
-    let graphData = await getAPI(`graph/visualize/${sellerData._id}`);
+    let graphData = await getAPI(`/graph/visualize/${sellerData._id}`);
     setDateVsSales(graphData.dateVsSales);
     setCategoryVsSales(graphData.categoryVsSales);
     setIsDataFetching(false);

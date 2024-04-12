@@ -3,10 +3,11 @@ import { notify } from "./notification";
 export const uploadImageToCloudinary = async (image) => {
   const data = new FormData();
   data.append("file", image);
-  data.append("upload_preset", "ml_default");
+  data.append("upload_preset", "images_preset");
+  data.append("cloudname",`${import.meta.env.VITE_CLOUDINARY_NAME}`)
 
   try {
-    const response = await fetch(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`, {
+    const response = await fetch(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_NAME}/image/upload`, {
       method: "post",
       body: data,
     });
@@ -19,7 +20,7 @@ export const uploadImageToCloudinary = async (image) => {
     
     const responseData = await response.json();
     // console.log(responseData);
-    return responseData.url;
+    return responseData.secure_url;
   } catch (err) {
     console.log(err);
     notify("Error occurred while uploading the image", "error");

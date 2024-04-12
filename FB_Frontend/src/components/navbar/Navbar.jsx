@@ -128,7 +128,7 @@ function Navbar() {
                   </li>
                   <li
                     onClick={() => {
-                      // dispatch(addSellerData(null));
+                      dispatch(addSellerData(null));
                       navigate("/");
                       notify("Seller Logged Out", "info");
                     }}

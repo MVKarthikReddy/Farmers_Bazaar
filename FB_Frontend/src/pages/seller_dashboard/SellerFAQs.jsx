@@ -59,7 +59,7 @@ function SellerFAQs() {
   };
 
   const seeProduct = async (productId) => {
-    let data = await getAPI(`product/getProductDataById/${productId}`);
+    let data = await getAPI(`/product/getProductDataById/${productId}`);
 
     // console.log(data);
 

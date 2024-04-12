@@ -33,7 +33,7 @@ function SellerProducts() {
     if (!isDeleting) {
       setIndexOfProduct(index);
       setIsDeleting(true);
-      await deleteAPI(`product/delete/${productId}`);
+      await deleteAPI(`/api/product/delete/${productId}`);
       setIsDataUpdated(true);
       setIndexOfProduct(-1);
       setIsDeleting(false);
@@ -45,7 +45,7 @@ function SellerProducts() {
   // API to GET Data
   const getProducts = async () => {
     let productData = await getAPI(
-      `product/getProductData/${sellerData._id}`
+      `/api/product/getProductData/${sellerData._id}`
     );
     setData(productData);
     setIsDataFetching(false);
@@ -68,7 +68,7 @@ function SellerProducts() {
             placeholder="Search for products"
           />
         </div>
-        <Link to="product/add" className="w-full md:w-fit text-center">
+        <Link to="/sellerdashboard/product/add" className="w-full md:w-fit text-center">
           <div className="text-md py-2 px-4 text-white rounded cursor-pointer bg-sky-700">
             <i className="fa-regular fa-plus mr-2"></i>Add Product
           </div>
