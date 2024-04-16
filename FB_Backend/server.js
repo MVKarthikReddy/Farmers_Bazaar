@@ -4,7 +4,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 require("dotenv").config();
 
-// const { setupWebSocket } = require("./services/setupWebSocket");
+const { setupWebSocket } = require("./services/setupWebSocket");
 
 const connectDb = require('./config/connectDB')
 connectDb()
@@ -27,9 +27,9 @@ app.use(cors());
 app.use(express.json());
 
 const server = http.createServer(app);
-// const io = new Server(server);
+const io = new Server(server);
 
-// setupWebSocket(io);
+setupWebSocket(io);
 
 app.use("/api/users", user);
 app.use("/api/sellers", seller);
