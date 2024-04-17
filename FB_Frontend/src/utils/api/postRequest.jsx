@@ -5,7 +5,7 @@ export const postAPI = async (endpointURL, data) => {
   try {
     // console.log(JSON.stringify(data))
     
-    const response = await fetch(`http://localhost:5000${endpointURL}`, {
+    const response = await fetch(`${import.meta.env.VITE_FARMERS_BAZAAR_API}${endpointURL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
