@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { notify } from "../../utils/helper/notification";
 
-function Cart() { //{ setOpenCart }
+function Cart( {setOpenCart} ) {
   const navigate = useNavigate();
 
   const cartData = useSelector((state) => state.cartReducer);
@@ -41,7 +41,7 @@ function Cart() { //{ setOpenCart }
                           className="-m-2 p-2 text-gray-400 hover:text-gray-500"
                           onClick={(e) => {
                             e.preventDefault();
-                            // setOpenCart(false);
+                            setOpenCart(false);
                           }}
                         >
                           <svg
@@ -89,7 +89,7 @@ function Cart() { //{ setOpenCart }
                           }
                           else if(userData){
                             navigate('/orders');
-                            // setOpenCart(false);
+                            setOpenCart(false);
                           }
                           else{
                             notify("Please login as user first","info")
@@ -106,7 +106,7 @@ function Cart() { //{ setOpenCart }
                           className="font-medium text-indigo-600 hover:text-indigo-500"
                           onClick={(e) => {
                             e.preventDefault();
-                            // setOpenCart(false);
+                            setOpenCart(false);
                           }}
                         >
                           Continue Shopping

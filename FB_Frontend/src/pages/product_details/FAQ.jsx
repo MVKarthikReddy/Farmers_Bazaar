@@ -19,7 +19,7 @@ function FAQ() {
     const getReview = async () => {
       setIsLoading(true);
       let data = await getAPI(
-        `faq/showbyproduct?productId=${productData._id}&page=${currentPage}&faq_per_page=6`
+        `/faqs/showbyproduct?productId=${productData._id}&page=${currentPage}&faq_per_page=6`
       );
       // console.log(data);
       if (data.length === 0) {

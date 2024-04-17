@@ -19,7 +19,7 @@ function ProductDetails() {
   const isProductInCart = cartData.some((item) => item._id === productData._id);
 
   useEffect(() => {
-    const socket = io(import.meta.env.VITE_CROPCONNECT_API, {
+    const socket = io("https://localhost:5000", {
       transports: ["websocket"],
     });
 
@@ -39,7 +39,7 @@ function ProductDetails() {
 
   const getCurrentStocks = async () => {
     let stocks = await getAPI(
-      `product/getProductStocksById/${productData._id}`
+      `/api/product/getProductStocksById/${productData._id}`
     );
     dispatch(
       addProductData({

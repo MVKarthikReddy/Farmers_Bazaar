@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-// import { removeFromCart, increaseProductQty, decreaseProductQty } from "../../redux/actions";
+import { removeFromCart, increaseProductQty, decreaseProductQty } from "../../redux/actions";
 
-function CartCard(item) {
+function CartCard({item}) {
 
   const dispatch = useDispatch();
 
-  // const removeProductFromCart = () => {
-  //   dispatch(removeFromCart(item._id));
-  // }
+  const removeProductFromCart = () => {
+    dispatch(removeFromCart(item._id));
+  }
 
-  // const incQty = () => {
-  //   dispatch(increaseProductQty(item._id));
-  // }
+  const incQty = () => {
+    dispatch(increaseProductQty(item._id));
+  }
 
-  // const decQty = () => {
-  //   dispatch(decreaseProductQty(item._id));
-  // }
+  const decQty = () => {
+    dispatch(decreaseProductQty(item._id));
+  }
 
 
   return (

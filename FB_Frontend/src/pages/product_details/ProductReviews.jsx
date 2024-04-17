@@ -58,7 +58,7 @@ function ProductReviews() {
       ) {
         try {
           setIsSubmitting(true);
-          await postAPI("review/add", reviewForm);
+          await postAPI("/review/add", reviewForm);
           // setReviewData([reviewForm, ...reviewData]);
           setRate(0);
           setReviewForm({
@@ -82,7 +82,7 @@ function ProductReviews() {
     const getReview = async () => {
       setIsLoading(true);
       let data = await getAPI(
-        `review/get?page=${currentPage}&per_page=2&productId=${productData._id}`
+        `/review/get?page=${currentPage}&per_page=2&productId=${productData._id}`
       );
       if (data.length === 0) {
         setReachedEnd(true);

@@ -12,7 +12,7 @@ function Product() {
   const [isDataFetching, setIsDataFetching] = useState(true);
 
   const getProductData = async () => {
-    let data = await getAPI(`product/getProductDataByCategory/${type}`);
+    let data = await getAPI(`/api/product/getProductDataByCategory/${type}`);
     setProductData(data);
     setIsDataFetching(false);
   };

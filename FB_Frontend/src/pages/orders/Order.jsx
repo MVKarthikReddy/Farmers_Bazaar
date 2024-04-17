@@ -175,7 +175,8 @@ function Order() {
                     </div>
                     <div className="flex flex-col justify-start items-center">
                       <p className="text-lg leading-6  font-semibold text-gray-800">
-                        CropConnect
+                        <span className="text-blue-500">F</span>armers<span className="text-blue-500">B</span>azaar
+
                         <br />
                         <span className="font-normal">
                           Delivery within 24 Hours
