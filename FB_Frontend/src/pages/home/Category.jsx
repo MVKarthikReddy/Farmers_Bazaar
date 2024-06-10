@@ -8,49 +8,49 @@ function Category() {
       <Link to={"/category/rice"}>
         <CategoryCard
           title="Rice"
-          image="https://source.unsplash.com/xmuIgjuQG0M"
+          image="https://unsplash.com/photos/brown-wheat-in-close-up-photography-Y678onxFoJI"
         />
       </Link>
       <Link to={"/category/wheat"}>
         <CategoryCard
           title="Wheat"
-          image="https://source.unsplash.com/joOVC9d-jis"
+          image="https://unsplash.com/photos/wheat-field-y4xZxzN754M"
         />
       </Link>
       <Link to={"/category/nuts"}>
         <CategoryCard
           title="Nuts"
-          image="https://source.unsplash.com/UhrHTmVBzzE"
+          image="https://unsplash.com/photos/variety-of-assorted-color-beans-UhrHTmVBzzE"
         />
       </Link>
       <Link to={"/category/sugar"}>
         <CategoryCard
           title="Sugar"
-          image="https://source.unsplash.com/u_Mwofs_zu0"
+          image="https://unsplash.com/photos/spoon-of-powder-oKay0q7Pa30"
         />
       </Link>
       <Link to={"/category/spices"}>
         <CategoryCard
           title="Spices"
-          image="https://source.unsplash.com/uaHShoIDGeo"
+          image="https://unsplash.com/photos/a-variety-of-spices-on-a-white-table-NPrWYa69Mz0"
         />
       </Link>
       <Link to={"/category/fruits"}>
         <CategoryCard
           title="Fruits"
-          image="https://source.unsplash.com/M_xIaxQE3Ms"
+          image="https://unsplash.com/photos/red-apple-fruit-beside-green-apple-and-yellow-fruit-on-brown-woven-basket-5JQH9Iqnm9o"
         />
       </Link>
       <Link to={"/category/vegetables"}>
         <CategoryCard
           title="Vegetables"
-          image="https://source.unsplash.com/5aJVJvJ9rG8"
+          image="https://unsplash.com/photos/vegetables-and-fruits-s285sDw5Ikc"
         />
       </Link>
       <Link to={"/category/pulses"}>
         <CategoryCard
           title="Pulses"
-          image="https://source.unsplash.com/TUf3H3vRlNU"
+          image="https://unsplash.com/photos/a-close-up-of-a-snake-CswUmX6JTvg"
         />
       </Link>
     </div>

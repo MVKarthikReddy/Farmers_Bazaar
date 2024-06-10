@@ -38,7 +38,7 @@ app.use("/review", review);
 app.use("/cart", cart);
 // app.use("/otp", otp);
 app.use("/order", order);
-app.use("/faq", faq);
+app.use("/faqs", faq);
 app.use("/graph", graph)
 
 
