@@ -44,7 +44,7 @@ function Category() {
       <Link to={"/category/vegetables"}>
         <CategoryCard
           title="Vegetables"
-          image="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bhg.com%2Fgardening%2Fvegetable%2Fdifference-between-fruits-vegetables%2F&psig=AOvVaw08Z-d6ygx06hmujFrl-Vnm&ust=1718122689131000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLj62_a30YYDFQAAAAAdAAAAABAE"
+          image="https://www.bhg.com/thmb/cX9GeFKdow2d4mNqEbMRTXjpoZQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/difference-between-fruits-vegetables-01-5f92e7ec706b463287bcfb46985698f9.jpg"
         />
       </Link>
       <Link to={"/category/pulses"}>
