@@ -62,7 +62,7 @@ function Order() {
 
       // console.log("Order data:", orderData);
       try {
-        let isSuccessfull = await postAPI("order/add", orderData);
+        let isSuccessfull = await postAPI("/order/add", orderData);
 
         if (isSuccessfull) {
           dispatch(removeFromCart(element._id));
