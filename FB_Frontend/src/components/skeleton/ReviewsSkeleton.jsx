@@ -1,6 +1,6 @@
 import React from "react";
 import BoxSkeleton from "./BoxSkeleton";
-
+import PropTypes from "prop-types"
 const ReviewsSkeleton = ({ noOfBoxes = 2 }) => {
   return (
     <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-8">
@@ -18,3 +18,7 @@ const ReviewsSkeleton = ({ noOfBoxes = 2 }) => {
 };
 
 export default ReviewsSkeleton;
+
+ReviewsSkeleton.propTypes = {
+  noOfBoxes : PropTypes.number
+}

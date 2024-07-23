@@ -3,7 +3,7 @@ import { notifyType } from "../helper/notificationType";
 
 export const postAPI = async (endpointURL, data) => {
   try {
-    // console.log(JSON.stringify(data))
+    // console.log("in post API function")
     
     const response = await fetch(`${import.meta.env.VITE_FARMERS_BAZAAR_API}${endpointURL}`, {
       method: "POST",
@@ -12,7 +12,7 @@ export const postAPI = async (endpointURL, data) => {
       },
       body: JSON.stringify(data),
     });
-    console.log("hello")
+    // console.log("hello")
     const responseData = await response.json();
     console.log(response.status);
     notify(responseData["message"], notifyType(response.status));

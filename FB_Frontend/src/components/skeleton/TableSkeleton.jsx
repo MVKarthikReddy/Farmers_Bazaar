@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types"
 function TableSkeleton({ rows = 10 }) {
   return (
     <>
@@ -30,3 +30,8 @@ function TableSkeleton({ rows = 10 }) {
 }
 
 export default TableSkeleton;
+
+
+TableSkeleton.propTypes = {
+  rows : PropTypes.number
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { removeFromCart, increaseProductQty, decreaseProductQty } from "../../redux/actions";
+import PropTypes from "prop-types";
 
 function CartCard({item}) {
 
@@ -79,3 +80,7 @@ function CartCard({item}) {
 }
 
 export default CartCard;
+
+CartCard.propTypes = {
+  item : PropTypes.object
+}

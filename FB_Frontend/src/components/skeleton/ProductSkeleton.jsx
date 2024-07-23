@@ -1,6 +1,6 @@
 import React from "react";
 import BoxSkeleton from "./BoxSkeleton";
-
+import PropTypes from "prop-types"
 const ProductSkeleton = ({ noOfBoxes = 8 }) => {
   return (
     <div className="grid gap-4 md:gap-8 my-6 md:my-12 grid-cols-2 lg:grid-cols-4 w-11/12 mx-auto">
@@ -19,3 +19,7 @@ const ProductSkeleton = ({ noOfBoxes = 8 }) => {
 };
 
 export default ProductSkeleton;
+
+ProductSkeleton.propTypes = {
+  noOfBoxes : PropTypes.number
+}

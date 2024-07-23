@@ -1,14 +1,14 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
-
 function CategoryCard(props) {
     
     return (
         <div
             className="relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg">
             <img src={props.image}
-                className="w-full h-28 md:h-52 transition duration-300 ease-linear" />
-            <a href='#x'>
+                className="w-full h-28 md:h-52 transition duration-300 ease-linear" 
+            />
+            <a href='#'>
                 <div
                     className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed bg-[hsla(0,0%,0%,0.3)]">
                     <div className="flex h-full items-end justify-start">
@@ -27,3 +27,4 @@ function CategoryCard(props) {
     )
 }
 export default CategoryCard
+

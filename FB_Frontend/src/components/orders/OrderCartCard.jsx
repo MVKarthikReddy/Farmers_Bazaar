@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types"
 function OrderCartCard({item}) {
   return (
     <div className="mt-4 md:mt-6 flex flex-row gap-2 justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full">
@@ -51,3 +51,7 @@ function OrderCartCard({item}) {
 }
 
 export default OrderCartCard;
+
+OrderCartCard.propTypes = {
+  item : PropTypes.object
+}

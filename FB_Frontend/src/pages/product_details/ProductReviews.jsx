@@ -162,8 +162,8 @@ function ProductReviews() {
           ) : reviewData.length === 0 ? (
             <EmptyStateText text="Be the first to share your thoughts! This product doesn't have any reviews yet. Your feedback can help others make informed decisions. Write a review now!" />
           ) : (
-            reviewData.map((item, index) => (
-              <div className="w-full flex justify-start items-start flex-col bg-gray-50 p-4 md:p-8">
+            reviewData.map((item,index) => (
+              <div key={index} className="w-full flex justify-start items-start flex-col bg-gray-50 p-4 md:p-8">
                 <div className="flex flex-row justify-between w-full">
                   <div className="flex flex-row justify-between items-start">
                     <p className="text-xl md:text-2xl font-medium leading-normal text-teal-600">

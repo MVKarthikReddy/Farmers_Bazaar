@@ -1,5 +1,7 @@
 import React from "react";
 import BoxSkeleton from "./BoxSkeleton";
+import PropTypes from "prop-types"
+
 
 const GraphSkeleton = ({ noOfBoxes = 4 }) => {
   return (
@@ -21,3 +23,7 @@ const GraphSkeleton = ({ noOfBoxes = 4 }) => {
 };
 
 export default GraphSkeleton;
+
+GraphSkeleton.propTypes = {
+  noOfBoxes : PropTypes.number
+}

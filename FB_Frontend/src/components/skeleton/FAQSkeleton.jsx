@@ -1,5 +1,6 @@
 import React from "react";
 import BoxSkeleton from "./BoxSkeleton";
+import PropTypes from "prop-types"
 
 const FAQSkeleton = ({ noOfBoxes = 6 }) => {
   return (
@@ -21,3 +22,8 @@ const FAQSkeleton = ({ noOfBoxes = 6 }) => {
 };
 
 export default FAQSkeleton;
+
+FAQSkeleton.propTypes = {
+  noOfBoxes : PropTypes.number
+}
+

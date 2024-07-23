@@ -9,7 +9,7 @@ import getCurrentDateTime from "../../utils/helper/getCurrentDateTime";
 import LeafletMap from "../../components/map/LeafletMap";
 import Spinner from "../../components/loading/Spinner";
 import Heading from "../../components/heading/Heading";
-
+import Razorpay from "razorpay"
 function Order() {
   const dispatch = useDispatch();
 
@@ -19,9 +19,9 @@ function Order() {
   const cartData = useSelector((state) => state.cartReducer);
   const userData = useSelector((state) => state.userReducer);
 
-  console.log("Cart Data:", cartData);
+  // console.log("Cart Data:", cartData);
 
-  console.log("User Data:", userData);
+  // console.log("User Data:", userData);
 
   const [totalAmount, setTotalAmount] = useState(0);
 
@@ -33,7 +33,7 @@ function Order() {
 
   const [isPaymentInitiated, setIsPaymentInitiated] = useState(false);
 
-  const orderNow = async () => {
+  const orderNow = async (e) => {
     setIsPaymentInitiated(true);
     if (customerLatitude === null || customerLongitude === null) {
       notify("Please select and submit valid delivery location", "info");
@@ -61,14 +61,64 @@ function Order() {
       };
 
       // console.log("Order data:", orderData);
-      try {
-        let isSuccessfull = await postAPI("/order/add", orderData);
+      const data = {
+        amount: orderData.totalPrice * 100,
+        currency: "INR",
+        receipt: `Product Id ${orderData.productId}`,
+      }
 
-        if (isSuccessfull) {
-          dispatch(removeFromCart(element._id));
-        } else {
-          notify("Something went wrong", "error");
-        }
+      const response = await fetch(`${import.meta.env.VITE_FARMERS_BAZAAR_API}/order/payment`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const order = await response.json()
+      console.log(order)
+      try {
+        var options = {
+          "key": `${import.meta.env.VITE_RAZOR_PAY_KEY_ID}`, // Enter the Key ID generated from the Dashboard
+          "amount": orderData.totalPrice * 100 , // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+          "currency": "INR",
+          "name": "Farmer's Bazaar", //your business name
+          "description": "Test Transaction",
+          "image": "https://cdn.pixabay.com/photo/2021/11/19/11/55/field-6809045_1280.jpg",
+          "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+          "handler": async function (response){
+
+              // alert(response.razorpay_payment_id);
+              // alert(response.razorpay_order_id);
+              // alert(response.razorpay_signature)
+              
+              let isSuccessfull = await postAPI("/order/add", orderData);
+
+              if (isSuccessfull) {
+                dispatch(removeFromCart(element._id));
+              } else {
+                notify("Something went wrong", "error");
+              }
+          },
+          "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+              "name": orderData.customerName, //your customer's name
+              "email": orderData.customerEmail,
+              "contact": orderData.customerPhoneNo //Provide the customer's phone number for better conversion rates 
+          },
+          "notes": {
+              "address": "Razorpay Corporate Office"
+          },
+          "theme": {
+              "color": "#3399cc"
+          }
+      };
+        var rzp1 = new window.Razorpay(options);
+        rzp1.on('payment.failed', function (response){
+          notify('Payment Failed')
+  });
+        await rzp1.open();
+        e.preventDefault();
+
       } catch (error) {
         console.error("Error placing order:", error);
         notify("Something went wrong", "error");
@@ -196,11 +246,11 @@ function Order() {
                 <div className="w-full flex justify-center items-center">
                   <button
                     className="hover:bg-black    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-gray-800 text-base font-medium leading-4 text-white flex flex-row justify-center items-center"
-                    onClick={() => {
+                    onClick={(e) => {
                       if (cartData.length === 0) {
                         notify("First add some items to cart", "info");
                       } else {
-                        orderNow();
+                        orderNow(e);
                       }
                     }}
                   >
@@ -236,14 +286,14 @@ function Order() {
                     <path
                       d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M3 7L12 13L21 7"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                   <p className="cursor-pointer text-sm leading-5 ">
