@@ -6,7 +6,7 @@ const addCartItem = async (req, res) => {
     try {
         let data = Cart(req.body);
         let result = await data.save({ writeConcern: { w: 'majority' } });
-        console.log(result);
+        // console.log(result);
         res.status(200).send(result);
     } catch (error) {
         if (error.code === 11000 && error.keyPattern && error.keyPattern.userId && error.keyPattern.productId) {
