@@ -31,6 +31,20 @@ const io = new Server(server);
 
 setupWebSocket(io);
 
+// Middleware to set CORS headers
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', `${process.env.FRONTEND_URL}`); // Allow specific origin
+  res.header('Access-Control-Allow-Credentials', 'true'); // Allow credentials
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200); // Handle preflight requests
+  }
+  
+  next();
+});
+
 app.use("/api/users", user);
 app.use("/api/sellers", seller);
 app.use("/api/product", product);
